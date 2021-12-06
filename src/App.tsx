@@ -1,10 +1,12 @@
-import "./App.css";
+import GlobalStyle from "./global";
+import { Routes } from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Home</h1>
-    </div>
+    <>
+    <GlobalStyle />
+    <Routes />
+    </>
   );
 }
 

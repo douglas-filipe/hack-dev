@@ -1,12 +1,10 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "../pages/landingPage";
 
-export const Routes = () => {
+export const RoutesMain = () => {
   return (
-    <Switch>
-      <Route path="/" exact>
-          <LandingPage/>
-      </Route>
-    </Switch>
+    <Routes>
+      <Route path="/" element={<LandingPage/>} />
+    </Routes>
   );
 };

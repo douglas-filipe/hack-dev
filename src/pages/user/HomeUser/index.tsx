@@ -1,3 +1,12 @@
+import { MenuLateral } from "../../../components/MenuLateral"
+import { Container } from "./styles";
+import { MenuMobile } from "../../../components/MenuMobile";
+
 export const HomeUser = () => {
-  return <div>HomeUser</div>;
+  return(
+    <Container>
+      <MenuMobile/>
+      <MenuLateral/>
+    </Container>
+  )
 };

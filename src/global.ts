@@ -29,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         line-height: 1;
+        width: 100vw;
+        height: 100vh;
+        background: #131A21;
+        color: #D3D6DD;
+        font-family: 'Poppins', sans-serif;
+        -webkit-tap-highlight-color: transparent;
     }
     ol, ul {
         list-style: none;
@@ -45,6 +51,13 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+
+    html {
+      line-height: 1.15; /* 1 */
+      -webkit-text-size-adjust: 100%; /* 2 */
+    }
+
+
 
 `;
 

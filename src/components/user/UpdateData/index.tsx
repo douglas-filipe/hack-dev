@@ -5,7 +5,7 @@ import { Container } from './style'
 import { Button } from '../Button'
 
 
-export const UpdatePassword = () => {
+export const UpdateData = () => {
     return (
       <Container>
 

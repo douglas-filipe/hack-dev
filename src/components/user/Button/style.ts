@@ -17,4 +17,5 @@ export const Container = styled.button<IButtonProps>`
     border-radius: 9px;
     color: #fff;
     width: 120px;
+    border: 0;
 `

@@ -12,7 +12,7 @@ interface IPropsButton {
 export const Button = ({ children, redTheme=false, onClick}: IPropsButton) => {
 
     return(
-        <Container redTheme={redTheme} onClick={onClick}>
+        <Container redTheme={redTheme} onClick={onClick} className='Button'>
             {children}
         </Container>
     )

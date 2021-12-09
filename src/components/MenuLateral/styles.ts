@@ -16,7 +16,6 @@ export const Container = styled.div<IMenuLateralProps>`
   right: 0;
   bottom: 0;
   visibility: ${(props) => (props.openMenu ? "visible" : "hidden")};
-  
 
   img {
     width: 124px;

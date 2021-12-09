@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
         color: #D3D6DD;
         font-family: 'Poppins', sans-serif;
         -webkit-tap-highlight-color: transparent;
+        overflow-y: hidden;
     }
     ol, ul {
         list-style: none;

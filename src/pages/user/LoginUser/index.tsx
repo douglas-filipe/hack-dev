@@ -22,7 +22,7 @@ export const LoginUser = () => {
           <img src={Logo} alt="Logotipo" />
           <h1>Entre em sua conta</h1>
           <label htmlFor="email">Email:</label>
-          <input id="email" placeholder="Digite seu email..." />
+          <input id="email" placeholder="Digite seu email..." className="FirstInput"/>
           <label htmlFor="password">Senha:</label>
           <input
             id="password"

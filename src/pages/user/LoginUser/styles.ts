@@ -82,7 +82,7 @@ export const Container = styled.main`
         outline: 2px solid #3993dd;
       }
 
-      input:nth-child(4) {
+      .FirstInput {
         margin-bottom: 28px;
       }
 

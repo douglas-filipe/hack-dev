@@ -1,7 +1,8 @@
 import { MenuLateral } from "../../../components/MenuLateral";
 import { MenuMobile } from "../../../components/MenuMobile";
+import { CardEvent } from "../../../components/user/CardEvent";
 import { useEvents } from "../../../contexts/Events";
-import { Container } from "./styles";
+import { Container, Content, Events } from "./styles";
 
 export const EventsUser = () => {
   const { events } = useEvents();
@@ -9,11 +10,20 @@ export const EventsUser = () => {
     <Container>
       <MenuMobile />
       <MenuLateral />
-      {events.map((item, index) => (
-        <div key={index}>
-          <h3>{item.name}</h3>
-        </div>
-      ))}
+      <Content>
+        <h1>Eventos</h1>
+        <Events>
+          {events.map((item, index) => (
+            <CardEvent
+              key={index}
+              title={item.name}
+              date={item.date}
+              func={(parameter) => console.log(parameter)}
+              pathFunc={item.name}
+            />
+          ))}
+        </Events>
+      </Content>
     </Container>
   );
 };

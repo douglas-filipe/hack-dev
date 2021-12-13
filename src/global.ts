@@ -35,8 +35,14 @@ const GlobalStyle = createGlobalStyle`
         color: #D3D6DD;
         font-family: 'Poppins', sans-serif;
         -webkit-tap-highlight-color: transparent;
-        overflow-y: hidden;
+        overflow-x: hidden;
     }
+
+    
+
+        /**Scroll */
+    
+    /** */
     ol, ul {
         list-style: none;
     }
@@ -57,7 +63,6 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.15; /* 1 */
       -webkit-text-size-adjust: 100%; /* 2 */
     }
-
 
 
 `;

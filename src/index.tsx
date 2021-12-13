@@ -5,13 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Providers } from "./contexts";
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Providers>
       <BrowserRouter>
-          <App />
+        <App />
       </BrowserRouter>
     </Providers>
   </React.StrictMode>,

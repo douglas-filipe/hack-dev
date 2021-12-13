@@ -32,18 +32,6 @@ export const Container = styled.div<IMenuLateralProps>`
     padding: 10px 20px;
   }
 
-  /*a::before{
-    content: "";
-    width: 10px;
-    height: 39px;
-    background: blue;
-    position: absolute;
-    transform: translateX(10%);
-    left: -4px;
-    background: #D3D6DD;
-    border-radius: 20px;
-  }*/
-
   a svg {
     width: 25px;
     height: 25px;
@@ -93,11 +81,11 @@ export const Container = styled.div<IMenuLateralProps>`
     width: initial;
     height: initial;
     visibility: visible;
-    .Close{
+    .Close {
       display: none;
     }
 
-    img{
+    img {
       margin-top: 39px;
     }
   }

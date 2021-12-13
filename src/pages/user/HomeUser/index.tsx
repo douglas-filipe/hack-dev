@@ -4,7 +4,7 @@ import { MenuMobile } from "../../../components/MenuMobile";
 
 export const HomeUser = () => {
   return(
-    <Container>
+    <Container className="Home">
       <MenuMobile/>
       <MenuLateral/>
     </Container>

@@ -1,6 +1,7 @@
 import GlobalStyle from "./global";
 import { RoutesMain } from "./routes";
 
+
 const App = () => {
   return (
     <>

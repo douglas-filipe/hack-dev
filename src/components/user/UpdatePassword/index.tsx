@@ -1,28 +1,19 @@
-import { Button } from "../Button"
-import { Input } from "../Input"
-import { Container } from "./style"
+import { Button } from "../Button";
+import { Input } from "../Input";
+import { Container } from "./style";
 
+export const UpdatePassword = ({ handlePassword }: any) => {
+  return (
+    <Container>
+      <h3>Altere sua senha</h3>
 
-export const UpdatePassword = () => {
-    return (
-        <Container>
+      <form>
+        <Input title="Nova senha" placeholder="Digite sua senha" />
 
-            <h3>Altere sua senha</h3>
+        <Input title="Confirmar senha" placeholder="Confirme sua senha" />
 
-            <form>
-                <Input
-                    title="Nova senha"
-                    placeholder="Digite sua senha"
-                />
-
-                <Input
-                    title="Confirmar senha"
-                    placeholder="Confirme sua senha"
-                />
-
-                <Button>Alterar senha</Button>
-            
-            </form>
-        </Container>
-    )
-}
+        <Button onClick={handlePassword}>Alterar senha</Button>
+      </form>
+    </Container>
+  );
+};

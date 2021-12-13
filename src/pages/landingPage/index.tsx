@@ -1,13 +1,11 @@
 import { UpdatePassword } from "../../components/user/UpdatePassword";
 
-
 export const LandingPage = () => {
-  return(
+  return (
     <div>
       <div>LandingPage</div>
 
-      <UpdatePassword/>
-
+      {/* <UpdatePassword/> */}
     </div>
-  ) 
+  );
 };

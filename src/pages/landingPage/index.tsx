@@ -13,9 +13,7 @@ import { Link } from "react-router-dom";
 import { MdChecklist } from "react-icons/md";
 //import { useState } from "react";
 
-
 export const LandingPage = () => {
-
 
   //const [openMenu, setOpenMenu] = useState<boolean>(false)
   return (
@@ -171,5 +169,5 @@ export const LandingPage = () => {
 
       
     </Container>
-  );
+  )
 };

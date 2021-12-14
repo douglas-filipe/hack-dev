@@ -27,22 +27,22 @@ export const MenuLateral = () => {
       <div className="contents">
         <IoMdClose className="Close" onClick={() => setOpenMenu(false)} />
         <img src={Logo} alt="Logotipo" />
-        <CustomLink to="/home-user">
+        <CustomLink to="/home-user" onClick={() => setOpenMenu(false)}>
           <AiOutlineHome />
           <span>Home</span>
         </CustomLink>
 
-        <CustomLink to="/events-user">
+        <CustomLink to="/events-user" onClick={() => setOpenMenu(false)}>
           <BsCalendarEvent />
           <span>Eventos</span>
         </CustomLink>
 
-        <CustomLink to="/">
+        <CustomLink to="/" onClick={() => setOpenMenu(false)}>
           <BsTrophy />
           <span>Premiações</span>
         </CustomLink>
 
-        <CustomLink to="/">
+        <CustomLink to="/" onClick={() => setOpenMenu(false)}>
           <FiSettings />
           <span>Configurações</span>
         </CustomLink>

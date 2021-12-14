@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+interface iLandingPageProps{
+  openMenu: boolean
+}
+
+export const Container = styled.main<iLandingPageProps>`
   width: 100vw;
   height: 100vh;
   /*overflow-y: hidden;*/
   overflow-x: hidden;
+  scroll-behavior: smooth;
 
   ::-webkit-scrollbar {
     width: 10px; /* width of the entire scrollbar */
@@ -283,14 +288,34 @@ export const Container = styled.main`
 
     nav {
       position: fixed;
-      background-color: rgb(1, 1, 1, 0.7);
+      background-color: rgb(1, 1, 1, 0.97);
       width: 100vw;
       height: 100vh;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      visibility: hidden;
+      visibility: ${props => props.openMenu ? "visible": "hidden"};
+      z-index: 100;
+      transition: 0.4s;
+      animation: ${props => props.openMenu ? "0.4s animateMenuLandingPage": "none"};
+      opacity: ${props => props.openMenu ? "1": "0"};
+      @keyframes animateMenuLandingPage {
+        from {
+          opacity: 0
+        }
+      
+        to {
+          opacity: 1
+        }
+      }
+
+      .BtnClose{
+        position: absolute;
+        right: 0;
+        width: 40px;
+        height: 40px;
+      }
 
       ul {
         display: flex;
@@ -307,6 +332,12 @@ export const Container = styled.main`
           font-weight: bold;
           color: white;
           cursor: pointer;
+
+          a{
+            color: white;
+            text-decoration: none
+          }
+        
         }
       }
     }
@@ -458,6 +489,10 @@ export const Container = styled.main`
         visibility: visible;
         display: initial;
 
+        .BtnClose{
+          display: none;
+        }
+
         ul {
           width: initial;
           height: initial;
@@ -472,6 +507,10 @@ export const Container = styled.main`
             transition: 0.3s;
             :hover {
               color: white;
+            }
+
+            a{
+              color: #787e8c;
             }
           }
         }

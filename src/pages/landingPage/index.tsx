@@ -13,25 +13,29 @@ import commaImg from "../../assets/landing-page/comma.svg";
 
 import { Link } from "react-router-dom";
 import { MdChecklist } from "react-icons/md";
-//import { useState } from "react";
+import { useState } from "react";
+import { RiCloseLine } from "react-icons/ri";
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 export const LandingPage = () => {
-  //const [openMenu, setOpenMenu] = useState<boolean>(false)
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
   return (
-    <Container>
+    <Container openMenu={openMenu}>
       <header>
         <img src={Logo} alt="Logotipo" />
-        <GiHamburgerMenu className="Menu" />
+        <GiHamburgerMenu className="Menu" onClick={() => setOpenMenu(true)}/>
         <nav>
+          <RiCloseLine className="BtnClose" onClick={() => setOpenMenu(false)}/>
           <ul>
-            <li>Início</li>
-            <li>Programação</li>
-            <li>Dúvidas</li>
+            <li onClick={() => setOpenMenu(false)}><a href="#inicio">Início</a></li>
+            <li onClick={() => setOpenMenu(false)} ><a href="#programation">Programação</a></li>
+            <li onClick={() => setOpenMenu(false)}><a href="#depositions">Depoimentos</a></li>
           </ul>
         </nav>
       </header>
 
-      <section className="Apresentation">
+      <section id="inicio" className="Apresentation">
         <img src={img1} alt="img1" />
         <div>
           <h1>
@@ -43,18 +47,20 @@ export const LandingPage = () => {
           </Link>
         </div>
       </section>
+      
 
-      <section className="Dev">
+      <section  className="Dev">
         <h1>Resolva problemas e crie soluções</h1>
         <img src={img2} alt="img2" />
       </section>
+
 
       <section className="Groups">
         <img src={img3} alt="img3" />
         <h1>Conheça pessoas e faça parte de um grupo</h1>
       </section>
 
-      <section className="Programation">
+      <section id="programation" className="Programation">
         <h1>Programação</h1>
 
         <section className="Timeline">
@@ -168,7 +174,7 @@ export const LandingPage = () => {
         </Link>
       </section>
 
-      <section className="Depositions">
+      <section id="depositions" className="Depositions">
         <h1>Depoimentos</h1>
         <div className="Comma">
           <img src={commaImg} alt="Virgula" />
@@ -217,6 +223,7 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
+
 
       <footer>
         <p>© 2021 - hack_dev | Todos os direitos reservados</p>

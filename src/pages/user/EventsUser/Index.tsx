@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { MenuLateral } from "../../../components/MenuLateral";
 import { MenuMobile } from "../../../components/MenuMobile";
 import { CardEvent } from "../../../components/user/CardEvent";
@@ -6,6 +7,7 @@ import { Container, Content, Events } from "./styles";
 
 export const EventsUser = () => {
   const { events } = useEvents();
+  const navigate = useNavigate();
   return (
     <Container>
       <MenuMobile />
@@ -18,8 +20,8 @@ export const EventsUser = () => {
               key={index}
               title={item.name}
               date={item.date}
-              func={(parameter) => console.log(parameter)}
-              pathFunc={item.name}
+              func={navigate}
+              pathFunc={`/events-user/${item.id}`}
             />
           ))}
         </Events>

@@ -168,6 +168,62 @@ export const Container = styled.main`
     }
   }
 
+  .Depositions {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+
+    .Comma {
+      margin-bottom: 20px;
+    }
+
+    .Cards {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      .Card {
+        background: #21293c;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        width: 180px;
+        color: #919aab;
+        margin: auto;
+
+        p {
+          margin-bottom: 20px;
+
+          font-weight: bold;
+        }
+
+        div {
+          display: flex;
+          div {
+            display: flex;
+            flex-direction: column;
+          }
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    h1 {
+      color: #d3d7dd;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+      margin: 40px auto;
+    }
+  }
+
   .Company {
     width: 90%;
     display: flex;
@@ -254,6 +310,14 @@ export const Container = styled.main`
         }
       }
     }
+  }
+
+  footer{
+    width: 100%;
+    background: #0C1524;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
   }
 
   @media (min-width: 768px) {
@@ -362,6 +426,23 @@ export const Container = styled.main`
     }
     .Menu {
       display: none;
+    }
+
+    .Depositions {
+      width: 100%;
+      max-width: 768px;
+      h1 {
+        font-size: 26px;
+        text-align: center;
+        width: 80%;
+        margin: 95px auto;
+      }
+
+      .Cards {
+        display: flex;
+        flex-direction: row;
+
+      }
     }
 
     header {

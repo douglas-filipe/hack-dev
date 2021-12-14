@@ -9,9 +9,19 @@ import { CustomLink } from "../CustomLink";
 
 import Logo from "../../assets/logo.svg";
 import { useMenu } from "../../contexts/Menu";
+import { useAuth } from "../../contexts/Auth";
 
 export const MenuLateral = () => {
   const { openMenu, setOpenMenu } = useMenu();
+  const { setToken, setUserId } = useAuth();
+
+  const logout = async () => {
+    await localStorage.removeItem("@hack-dev/userId");
+    await localStorage.removeItem("@hack-dev/token");
+    setToken("");
+    setUserId("");
+  };
+
   return (
     <Container openMenu={openMenu}>
       <div className="contents">
@@ -37,7 +47,7 @@ export const MenuLateral = () => {
           <span>Configurações</span>
         </CustomLink>
 
-        <button className="Logout">
+        <button className="Logout" onClick={logout}>
           <FiLogOut />
           <span>Sair</span>
         </button>

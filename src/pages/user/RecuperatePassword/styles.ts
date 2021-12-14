@@ -10,41 +10,6 @@ export const Container = styled.main`
     cursor: pointer;
   }
 
-  .Bg {
-    display: none;
-    background: #1548a5;
-    position: relative;
-
-    h1 {
-      font-weight: bold;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    section {
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        width: 300px;
-      }
-    }
-
-    img:nth-child(1) {
-      width: 200px;
-      position: absolute;
-    }
-
-    img:nth-child(3) {
-      width: 200px;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-  }
 
   .Form {
     width: 100vw;
@@ -60,7 +25,7 @@ export const Container = styled.main`
       h1 {
         text-align: center;
         margin-bottom: 35px;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
       }
 
@@ -112,7 +77,6 @@ export const Container = styled.main`
         font-size: 14px;
         border-radius: 13px;
         border: none;
-
         text-align: center;
         font-weight: bold;
       }
@@ -123,47 +87,19 @@ export const Container = styled.main`
         color: #ffffff;
       }
 
-      .LoginGoogle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        color: #43464e;
-
-        svg {
-          width: 30px;
-          height: 30px;
-        }
-      }
-
-      .LoginLink {
-        text-align: center;
-        margin: 28px auto;
-        color: #a8a8ab;
-        font-weight: 600;
-        font-size: 14px;
-        width: 200px;
-
-        a {
-          text-decoration: none;
-          color: #4a5bd5;
-        }
-      }
     }
   }
 
   @media (min-width: 768px) {
-    .Bg {
-      width: 50vw;
-      display: initial;
-    }
 
     .Form {
-      width: 50vw;
       align-items: center;
+      align-items: flex-start;
+      margin-top: 100px;
+  
 
       form{
-          width: 350px;
+          width: 400px;
 
           button{
               width: 310px;
@@ -180,51 +116,5 @@ export const Container = styled.main`
     }
   }
 
-  @media (min-width: 1024px) {
 
-    .Form{
-        form{
-            width: 400px;
-        }
-    }
-    .Bg {
-      img:nth-child(1) {
-        width: 200px;
-      }
-
-      img:nth-child(3) {
-        width: 200px;
-      }
-
-      section {
-        img {
-          width: 450px;
-        }
-        h1 {
-          font-size: 36px;
-        }
-      }
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .Bg {
-      img:nth-child(1) {
-        width: 273px;
-      }
-
-      img:nth-child(3) {
-        width: 273px;
-      }
-
-      section {
-        img {
-          width: 450px;
-        }
-        h1 {
-          font-size: 36px;
-        }
-      }
-    }
-  }
 `;

@@ -9,12 +9,13 @@ import company1 from "../../assets/landing-page/company/company1.png";
 import company2 from "../../assets/landing-page/company/company2.png";
 import company3 from "../../assets/landing-page/company/company3.png";
 import company4 from "../../assets/landing-page/company/company4.png";
+import commaImg from "../../assets/landing-page/comma.svg";
+
 import { Link } from "react-router-dom";
 import { MdChecklist } from "react-icons/md";
 //import { useState } from "react";
 
 export const LandingPage = () => {
-
   //const [openMenu, setOpenMenu] = useState<boolean>(false)
   return (
     <Container>
@@ -37,7 +38,7 @@ export const LandingPage = () => {
             Somos uma plataforma de Hackathon que reúne diversos desenvolvedores
             e empresas parceiras.
           </h1>
-          <Link to="/user-signup">
+          <Link to="/signup-user">
             <button>Conheça</button>
           </Link>
         </div>
@@ -167,7 +168,59 @@ export const LandingPage = () => {
         </Link>
       </section>
 
-      
+      <section className="Depositions">
+        <h1>Depoimentos</h1>
+        <div className="Comma">
+          <img src={commaImg} alt="Virgula" />
+        </div>
+        <div className="Cards">
+          <div className="Card">
+            <p>Tive uma experiência incrível com o evento</p>
+            <div>
+              <img
+                src="https://media-exp1.licdn.com/dms/image/C4D03AQEuAwew8Pt5VQ/profile-displayphoto-shrink_200_200/0/1624022155957?e=1645056000&v=beta&t=109oyg9dUYd3iYH3vJnUNunCHmijl3pepG1tuaJLoQQ"
+                alt="Profile"
+              />
+              <div>
+                <h3>Mônica Silva</h3>
+                <p>Desenvolvedora Back End</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="Card">
+            <p>Tive uma experiência incrível com o evento</p>
+            <div>
+              <img
+                src="https://media-exp1.licdn.com/dms/image/C4D03AQEuAwew8Pt5VQ/profile-displayphoto-shrink_200_200/0/1624022155957?e=1645056000&v=beta&t=109oyg9dUYd3iYH3vJnUNunCHmijl3pepG1tuaJLoQQ"
+                alt="Profile"
+              />
+              <div>
+                <h3>Mônica Silva</h3>
+                <p>Desenvolvedora Back End</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="Card">
+            <p>Tive uma experiência incrível com o evento</p>
+            <div>
+              <img
+                src="https://media-exp1.licdn.com/dms/image/C4D03AQEuAwew8Pt5VQ/profile-displayphoto-shrink_200_200/0/1624022155957?e=1645056000&v=beta&t=109oyg9dUYd3iYH3vJnUNunCHmijl3pepG1tuaJLoQQ"
+                alt="Profile"
+              />
+              <div>
+                <h3>Mônica Silva</h3>
+                <p>Desenvolvedora Back End</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2021 - hack_dev | Todos os direitos reservados</p>
+      </footer>
     </Container>
-  )
+  );
 };

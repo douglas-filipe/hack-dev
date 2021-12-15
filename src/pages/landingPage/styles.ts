@@ -488,6 +488,7 @@ export const Container = styled.main<iLandingPageProps>`
         height: initial;
         visibility: visible;
         display: initial;
+        opacity: 1;
 
         .BtnClose{
           display: none;

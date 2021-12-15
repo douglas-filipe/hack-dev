@@ -20,6 +20,7 @@ export const MenuLateral = () => {
     await localStorage.removeItem("@hack-dev/token");
     setToken("");
     setUserId("");
+    setOpenMenu(false)
   };
 
   return (

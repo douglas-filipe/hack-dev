@@ -6,7 +6,7 @@ export const Container = styled.main`
   height: 100vh;
   background: #181a20;
 
-  button{
+  button {
     cursor: pointer;
   }
 
@@ -107,7 +107,7 @@ export const Container = styled.main`
 
       button {
         height: 53px;
-        width: 220px;
+        width: 250px;
         margin: 0 auto;
         font-size: 14px;
         border-radius: 13px;
@@ -124,16 +124,11 @@ export const Container = styled.main`
       }
 
       .LoginGoogle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        color: #43464e;
 
-        svg {
-          width: 30px;
-          height: 30px;
-        }
+        display: flex;
+        justify-content: center;
+
+        
       }
 
       .LoginLink {
@@ -162,30 +157,29 @@ export const Container = styled.main`
       width: 50vw;
       align-items: center;
 
-      form{
-          width: 350px;
+      form {
+        width: 350px;
 
-          button{
-              width: 310px;
-          }
+        button {
+          width: 310px;
+        }
 
-          .LoginLink{
-              width: 300px;
-          }
+        .LoginLink {
+          width: 300px;
+        }
 
-          img{
-              width: 200px;
-          }
+        img {
+          width: 200px;
+        }
       }
     }
   }
 
   @media (min-width: 1024px) {
-
-    .Form{
-        form{
-            width: 400px;
-        }
+    .Form {
+      form {
+        width: 400px;
+      }
     }
     .Bg {
       img:nth-child(1) {

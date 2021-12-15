@@ -107,7 +107,7 @@ export const Container = styled.main`
 
       button {
         height: 53px;
-        width: 220px;
+        width: 250px;
         margin: 0 auto;
         font-size: 14px;
         border-radius: 13px;
@@ -125,15 +125,8 @@ export const Container = styled.main`
 
       .LoginGoogle {
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 8px;
-        color: #43464e;
 
-        svg {
-          width: 30px;
-          height: 30px;
-        }
       }
 
       .LoginLink {

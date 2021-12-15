@@ -12,6 +12,9 @@ import { DataForm } from "../../../types/AuthContext";
 import { useAuth } from "../../../contexts/Auth";
 import { toast } from "react-toastify";
 import api from "../../../services/api";
+import GoogleLogin from "react-google-login";
+
+
 
 export const LoginUser = () => {
   const { setToken, setUserId } = useAuth();
@@ -44,7 +47,7 @@ export const LoginUser = () => {
       localStorage.setItem("@hack-dev/token", response.data.token);
       localStorage.setItem("@hack-dev/userId", response.data.user.id);
       setToken(response.data.token);
-      setUserId(response.data.user.id)
+      setUserId(response.data.user.id);
       navigate("/home-user");
     } catch {
       toast.error("Email ou senha incorretos", {
@@ -53,6 +56,36 @@ export const LoginUser = () => {
       });
     }
   };
+
+  const responseGoogle = async (response: any) => {
+    const {
+      googleId,
+      profileObj: { email },
+    } = response;
+    try {
+      const response = await api.post("/users/login", {
+        email: email,
+        password: googleId,
+      });
+      await toast.success("Sucesso ao entrar em sua conta!", {
+        position: "top-right",
+        theme: "dark",
+      });
+      localStorage.setItem("@hack-dev/token", response.data.token);
+      localStorage.setItem("@hack-dev/userId", response.data.user.id);
+      setToken(response.data.token);
+      setUserId(response.data.user.id);
+      navigate("/home-user");
+    } catch {
+      toast.error("Conta google não vinculada", {
+        position: "top-right",
+        theme: "dark",
+      });
+    }
+  };
+
+  const responseGoogleError = () => {};
+
 
   return (
     <Container>
@@ -85,10 +118,15 @@ export const LoginUser = () => {
           <Link to="/recuperate-password">Esqueceu sua senha?</Link>
 
           <button className="Login">Entrar</button>
-          <button className="LoginGoogle">
-            <FcGoogle />
-            Entrar com google
-          </button>
+
+          <GoogleLogin
+            className="LoginGoogle"
+            clientId="748847660432-d9eoipaomkk4tu5rqh09jo4chevi4qv1.apps.googleusercontent.com"
+            buttonText="Continuar com o Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogleError}
+          />
+
           <p className="LoginLink">
             Não possui uma conta? <Link to="/signup-user">Cadastre-se</Link>
           </p>

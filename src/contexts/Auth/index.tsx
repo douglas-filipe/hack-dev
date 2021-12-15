@@ -15,8 +15,6 @@ export const AuthProvider = ({ children }: ContextProp) => {
     localStorage.getItem("@hack-dev/token") || ""
   );
 
-  console.log(userId, token)
-
   const reqLogin = async (data: DataForm) => {};
 
   return (

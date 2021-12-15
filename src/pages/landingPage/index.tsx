@@ -195,29 +195,29 @@ export const LandingPage = () => {
           </div>
 
           <div className="Card">
-            <p>Tive uma experiência incrível com o evento</p>
+            <p>Aprendi muito com os eventos.</p>
             <div>
               <img
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQEuAwew8Pt5VQ/profile-displayphoto-shrink_200_200/0/1624022155957?e=1645056000&v=beta&t=109oyg9dUYd3iYH3vJnUNunCHmijl3pepG1tuaJLoQQ"
+                src="https://media-exp1.licdn.com/dms/image/C5603AQEpWzGfxA7JCw/profile-displayphoto-shrink_200_200/0/1621543066800?e=1645056000&v=beta&t=XPwaPMG3qYTwd8EiTFa9tgBtPCMmtWrHtd9wQsFfnYg"
                 alt="Profile"
               />
               <div>
-                <h3>Mônica Silva</h3>
-                <p>Desenvolvedora Back End</p>
+                <h3>Estevan Martins</h3>
+                <p>Desenvolvedor Front End</p>
               </div>
             </div>
           </div>
 
           <div className="Card">
-            <p>Tive uma experiência incrível com o evento</p>
+            <p>A melhor plataforma de hackathon!</p>
             <div>
               <img
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQEuAwew8Pt5VQ/profile-displayphoto-shrink_200_200/0/1624022155957?e=1645056000&v=beta&t=109oyg9dUYd3iYH3vJnUNunCHmijl3pepG1tuaJLoQQ"
+                src="https://media-exp1.licdn.com/dms/image/D4E03AQHaLElE4MkqqA/profile-displayphoto-shrink_200_200/0/1634507483473?e=1645056000&v=beta&t=-6DyDMbD4h72btwtnAetXXEwUKoE8_KzaXVOZO6GY8w"
                 alt="Profile"
               />
               <div>
-                <h3>Mônica Silva</h3>
-                <p>Desenvolvedora Back End</p>
+                <h3>Anthony Freitas</h3>
+                <p>Desenvolvedor Front End</p>
               </div>
             </div>
           </div>

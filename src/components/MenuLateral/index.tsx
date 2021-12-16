@@ -20,7 +20,7 @@ export const MenuLateral = () => {
     await localStorage.removeItem("@hack-dev/token");
     await setToken("");
     await setUserId("");
-    await setOpenMenu(false)
+    await setOpenMenu(false);
   };
 
   return (
@@ -43,7 +43,7 @@ export const MenuLateral = () => {
           <span>Premiações</span>
         </CustomLink>
 
-        <CustomLink to="/" onClick={() => setOpenMenu(false)}>
+        <CustomLink to="/config-user" onClick={() => setOpenMenu(false)}>
           <FiSettings />
           <span>Configurações</span>
         </CustomLink>

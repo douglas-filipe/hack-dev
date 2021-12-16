@@ -47,8 +47,9 @@ export const Content = styled.div`
     z-index: 1;
   }
   .user-box {
-    width: 100%;
-    height: 250px;
+    width: 90%;
+    height: 350px;
+    margin: auto;
 
     display: flex;
     flex-direction: column;
@@ -57,8 +58,10 @@ export const Content = styled.div`
 
     div {
       width: 100%;
+      align-self: center;
       display: flex;
       justify-content: space-between;
+      margin-top: 30px;
     }
   }
   @media screen and (min-width: 768px) {

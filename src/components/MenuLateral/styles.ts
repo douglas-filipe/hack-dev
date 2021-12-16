@@ -17,14 +17,16 @@ export const Container = styled.div<IMenuLateralProps>`
   bottom: 0;
   visibility: ${(props) => (props.openMenu ? "visible" : "hidden")};
   transition: 0.4s;
-  animation: ${props => props.openMenu ? "0.4s animateMenuLateral": "none"};
-  opacity: ${props => props.openMenu ? "1": "0"};
+  animation: ${(props) =>
+    props.openMenu ? "0.4s animateMenuLateral" : "none"};
+  opacity: ${(props) => (props.openMenu ? "1" : "0")};
+  z-index: 5;
 
   @keyframes animateMenuLateral {
     from {
       opacity: 0;
     }
-  
+
     to {
       opacity: 1;
     }
@@ -56,14 +58,13 @@ export const Container = styled.div<IMenuLateralProps>`
     background: #10151d;
     display: flex;
     flex-direction: column;
-    animation: ${props => props.openMenu ? "0.4s animateMenu": "none"};
+    animation: ${(props) => (props.openMenu ? "0.4s animateMenu" : "none")};
   }
 
   @keyframes animateMenu {
     from {
       transform: translateX(-70%);
     }
-  
   }
 
   .Logout {

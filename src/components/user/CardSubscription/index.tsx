@@ -4,7 +4,7 @@ import subscription from '../../../assets/login-user/inscricao.svg'
 interface IPropSubscription {
     title: string,
     group: number,
-    event: string
+    event: string | ''
 }
 
 export const CardSubscription = ({ title,group ,event}: IPropSubscription) => {

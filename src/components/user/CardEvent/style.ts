@@ -15,6 +15,7 @@ export const Container = styled.div`
     }
 
     span{
+        margin: 5px 0;
         button{
             background: #DB8B15;
             border: 0;
@@ -23,6 +24,7 @@ export const Container = styled.div`
             width: 100px;
             border-radius: 9px;
             font-size: 14px;
+            cursor: pointer;
         }
     }
     @media (min-width: 700px) {

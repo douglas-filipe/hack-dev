@@ -58,6 +58,15 @@ export const Main = styled.div`
 
 
   .list-event{
+
+    .span-loading{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
     
     border-radius: 15px;
     background: #151E29;
@@ -88,6 +97,7 @@ export const Main = styled.div`
       border: 0;
       color: white;
       font-size: 0.85rem;
+      cursor: pointer;
     }
 
     @media (min-width: 700px) {

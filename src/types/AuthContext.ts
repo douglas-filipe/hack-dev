@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { EventData } from "./EventContext";
 
 export interface AuthProviderData {
   userId: string;
@@ -16,4 +17,14 @@ export interface DataForm {
   email: string;
   password?: string;
   name?: string;
+}
+
+export interface UserData {
+  id: number;
+  name: string;
+  email: string;
+  address: any;
+  event: EventData;
+  group: any;
+  feedbacks: any[];
 }

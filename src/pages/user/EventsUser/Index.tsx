@@ -3,7 +3,7 @@ import { MenuLateral } from "../../../components/MenuLateral";
 import { MenuMobile } from "../../../components/MenuMobile";
 import { CardEvent } from "../../../components/user/CardEvent";
 import { useEvents } from "../../../contexts/Events";
-import { Container, Content, Events } from "./styles";
+import { Container, Content, Events, Positioner } from "./styles";
 import { Load } from "../../../components/load";
 import { EventData } from "../../../types/EventContext";
 import { useAuth } from "../../../contexts/Auth";
@@ -38,26 +38,28 @@ export const EventsUser = () => {
     <Container>
       <MenuMobile />
       <MenuLateral />
-      <Content>
-        {loading ? (
-          <>
-            <h1>Eventos</h1>
-            <Events>
-              {events.map((item, index) => (
-                <CardEvent
-                  key={index}
-                  title={item.name}
-                  date={item.date}
-                  func={navigate}
-                  pathFunc={`/events-user/${item.id}`}
-                />
-              ))}
-            </Events>
-          </>
-        ) : (
-          <Load />
-        )}
-      </Content>
+      <Positioner>
+        <Content>
+          {loading ? (
+            <>
+              <h1>Eventos</h1>
+              <Events>
+                {events.map((item, index) => (
+                  <CardEvent
+                    key={index}
+                    title={item.name}
+                    date={item.date}
+                    func={navigate}
+                    pathFunc={`/events-user/${item.id}`}
+                  />
+                ))}
+              </Events>
+            </>
+          ) : (
+            <Load />
+          )}
+        </Content>
+      </Positioner>
     </Container>
   );
 };

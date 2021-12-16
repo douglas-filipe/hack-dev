@@ -20,6 +20,12 @@ export const Container = styled.main`
     }
   }
 
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   @media (max-width: 456px) {
     width: 300px;
   }
@@ -42,7 +48,7 @@ export const Back = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 150px;
+  width: 145px;
   height: 45px;
   border: none;
   box-sizing: border-box;

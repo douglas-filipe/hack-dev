@@ -43,7 +43,7 @@ export const MenuLateral = () => {
           <span>Premiações</span>
         </CustomLink>
 
-        <CustomLink to="/" onClick={() => setOpenMenu(false)}>
+        <CustomLink to="/config-user" onClick={() => setOpenMenu(false)}>
           <FiSettings />
           <span>Configurações</span>
         </CustomLink>

@@ -13,7 +13,6 @@ export const EventUser = () => {
   const { id } = useParams();
   const { token, userId } = useAuth();
   const [event, setEvent] = useState<EventData>({} as EventData);
-  const [render, setRender] = useState<boolean>(false);
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<UserData>({} as UserData);

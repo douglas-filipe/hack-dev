@@ -18,9 +18,9 @@ export const MenuLateral = () => {
   const logout = async () => {
     await localStorage.removeItem("@hack-dev/userId");
     await localStorage.removeItem("@hack-dev/token");
-    setToken("");
-    setUserId("");
-    setOpenMenu(false);
+    await setToken("");
+    await setUserId("");
+    await setOpenMenu(false);
   };
 
   return (

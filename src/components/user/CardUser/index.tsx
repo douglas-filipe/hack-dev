@@ -16,8 +16,6 @@ export const CardUser = () => {
 
   const { user } = useUser();
 
-  console.log(user[0].address.street);
-
   const handleUser = () => {
     setUpdateUser(!updateUser);
   };

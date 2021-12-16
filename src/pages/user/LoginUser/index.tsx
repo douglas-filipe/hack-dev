@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Logo from "../../../assets/logo.svg";
-import { FcGoogle } from "react-icons/fc";
 import EscadaCima from "../../../assets/login-user/escada_cima.svg";
 import EscadaBaixo from "../../../assets/login-user/escada_baixo.svg";
 import vetor from "../../../assets/login-user/vetor.svg";
@@ -13,8 +12,6 @@ import { useAuth } from "../../../contexts/Auth";
 import { toast } from "react-toastify";
 import api from "../../../services/api";
 import GoogleLogin from "react-google-login";
-
-
 
 export const LoginUser = () => {
   const { setToken, setUserId } = useAuth();
@@ -38,8 +35,6 @@ export const LoginUser = () => {
   const onSubmit = async (data: DataForm) => {
     try {
       const response = await api.post("/users/login", data);
-      await localStorage.setItem("@delicious/userId", response.data._id);
-      await localStorage.setItem("@delicious/token", response.data.token);
       await toast.success("Sucesso ao entrar em sua conta!", {
         position: "top-right",
         theme: "dark",
@@ -59,11 +54,11 @@ export const LoginUser = () => {
 
   const responseGoogle = async (response: any) => {
     const {
-      googleId,
-      profileObj: { email },
+      profileObj: { email, googleId },
     } = response;
+    console.log(response);
     try {
-      const response = await api.post("/users/login", {
+      const responseReq = await api.post("/users/login", {
         email: email,
         password: googleId,
       });
@@ -71,10 +66,10 @@ export const LoginUser = () => {
         position: "top-right",
         theme: "dark",
       });
-      localStorage.setItem("@hack-dev/token", response.data.token);
-      localStorage.setItem("@hack-dev/userId", response.data.user.id);
-      setToken(response.data.token);
-      setUserId(response.data.user.id);
+      localStorage.setItem("@hack-dev/token", responseReq.data.token);
+      localStorage.setItem("@hack-dev/userId", responseReq.data.user.id);
+      setToken(responseReq.data.token);
+      setUserId(responseReq.data.user.id);
       navigate("/home-user");
     } catch {
       toast.error("Conta google não vinculada", {
@@ -84,8 +79,12 @@ export const LoginUser = () => {
     }
   };
 
-  const responseGoogleError = () => {};
+  const responseGoogleError = (response: any) => {
+    console.log(response);
+  };
 
+  const clientId =
+    "748847660432-0ami3kf5cho790k0nllpq3mkafar58u8.apps.googleusercontent.com";
 
   return (
     <Container>
@@ -121,7 +120,7 @@ export const LoginUser = () => {
 
           <GoogleLogin
             className="LoginGoogle"
-            clientId="748847660432-d9eoipaomkk4tu5rqh09jo4chevi4qv1.apps.googleusercontent.com"
+            clientId={clientId}
             buttonText="Continuar com o Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogleError}

@@ -17,14 +17,14 @@ import { useNavigate } from "react-router-dom";
 export const HomeUser = () => {
 
   const {token, userId} = useAuth()
-  const [user, setUser] = useState<UserData>()
+  const [user, setUser] = useState<UserData>({} as UserData)
   const [message, setMessage] = useState('')
   const [events, setEvents] = useState<EventData[]>([])
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const getUser = async () => {
-    const response = await api.get(`/users/${userId}`, {
+    const response = await api.get<UserData>(`/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -61,7 +61,6 @@ export const HomeUser = () => {
     navigate('/details-event')
   } 
   
-
   return(
     <Container className="Home">
       <MenuMobile/>
@@ -74,15 +73,16 @@ export const HomeUser = () => {
       <div className="info">
         <CardPoints
           title="Pontos"
-          points={100} // colocar user.points
+          points={user.points}
           />
 
 
           <CardSubscription
             title="Inscrições"
-            event='sdasd'
+            event={user.event === null ? 'sem evento': 'com evento'} // arrumar aqui
             group={user?.group}
             />
+
         </div>
 
         <div className="list-event">

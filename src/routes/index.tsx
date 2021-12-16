@@ -9,15 +9,16 @@ import { SignupUser } from "../pages/user/SignupUser";
 import { useAuth } from "../contexts/Auth";
 import { RecuperatePassword } from "../pages/user/RecuperatePassword";
 
-
 export const RoutesMain = () => {
   const { token } = useAuth();
 
   return (
     <Routes>
-     
       <Route path="/" element={<LandingPage />} />
-      <Route path="/home-user" element={token ? <HomeUser />: <Navigate replace to="/login-user"/>} />
+      <Route
+        path="/home-user"
+        element={token ? <HomeUser /> : <Navigate replace to="/login-user" />}
+      />
       <Route
         path="/login-user"
         element={token ? <Navigate replace to="/home-user" /> : <LoginUser />}
@@ -28,14 +29,19 @@ export const RoutesMain = () => {
       />
       <Route
         path="/events-user"
-        element={token ? <EventsUser/>: <Navigate replace to="/login-user"/>}
+        element={token ? <EventsUser /> : <Navigate replace to="/login-user" />}
       />
       <Route
         path="/events-user/:id"
-        element={token ? <EventUser /> : <Navigate replace to="/login-user"/>}
+        element={token ? <EventUser /> : <Navigate replace to="/login-user" />}
       />
 
-      <Route path="/recuperate-password" element={<RecuperatePassword/>}/>
+      <Route
+        path="/config-user"
+        element={token ? <ConfigUser /> : <Navigate replace to="/login-user" />}
+      />
+
+      <Route path="/recuperate-password" element={<RecuperatePassword />} />
     </Routes>
   );
 };

@@ -5,6 +5,7 @@ import api from "../../../services/api";
 import { EventData } from "../../../types/EventContext";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../contexts/Auth";
+import { Load } from "../../../components/load";
 
 export const EventUser = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ export const EventUser = () => {
   const [event, setEvent] = useState<EventData>({} as EventData);
   const [render, setRender] = useState<boolean>(false);
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const user = {
     id: 1,
     name: "estevan",
@@ -59,8 +61,12 @@ export const EventUser = () => {
   };
 
   useEffect(() => {
-    getEvent();
-    verifySubscription();
+    const reqEvent = async () => {
+      await getEvent();
+      await verifySubscription();
+      setLoading(true);
+    };
+    reqEvent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -82,32 +88,41 @@ export const EventUser = () => {
       <Back onClick={() => navigate("/events-user")}>
         <BsArrow90DegLeft />
       </Back>
-      {render ? (
         <Container>
-          <p>
-            Evento: <span>{event.name}</span>
-          </p>
-          <p>
-            Data:{" "}
-            <span>
-              {event.date} até {event.duration}
-            </span>
-          </p>
-          <p>
-            Descrição:
-            <span> {event.description}</span>
-          </p>
-          <p>
-            Habilidades Técnicas:
-            <span> {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}</span>
-          </p>
-          <Button disabled={isSubscribed} onClick={() => subscribe(user.id)}>
-            Inscreva-se
-          </Button>
+          {loading ? (
+            <>
+              <p>
+                Evento: <span>{event.name}</span>
+              </p>
+              <p>
+                Data:{" "}
+                <span>
+                  {event.date} até {event.duration}
+                </span>
+              </p>
+              <p>
+                Descrição:
+                <span> {event.description}</span>
+              </p>
+              <p>
+                Habilidades Técnicas:
+                <span>
+                  {" "}
+                  {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}
+                </span>
+              </p>
+              <Button
+                disabled={isSubscribed}
+                onClick={() => subscribe(user.id)}
+              >
+                Inscreva-se
+              </Button>
+            </>
+          ) : (
+            <Load />
+          )}
         </Container>
-      ) : (
-        ""
-      )}
+    
     </>
   );
 };

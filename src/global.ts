@@ -35,7 +35,20 @@ const GlobalStyle = createGlobalStyle`
         color: #D3D6DD;
         font-family: 'Poppins', sans-serif;
         -webkit-tap-highlight-color: transparent;
-        overflow: hidden;
+        overflow-x: hidden;
+
+        ::-webkit-scrollbar {
+            width: 10px; /* width of the entire scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0e1222; /* color of the scroll thumb */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1c2230; /* color of the tracking area */
+            border-radius: 20px; /* roundness of the scroll thumb */
+        }
     }
 
     

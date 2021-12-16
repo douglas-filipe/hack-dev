@@ -5,6 +5,7 @@ export const Container = styled.div`
   background: #131a21;
   display: flex;
   flex-direction: row;
+  overflow-y: hidden;
 
   ::-webkit-scrollbar {
     display: none;
@@ -12,6 +13,7 @@ export const Container = styled.div`
 
   @media (max-width: 767px) {
     flex-direction: column;
+    
   }
 `;
 

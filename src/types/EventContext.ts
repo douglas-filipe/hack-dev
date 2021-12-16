@@ -11,3 +11,20 @@ export interface EventData {
   skills: string;
   pending: boolean;
 }
+
+
+
+
+
+
+
+
+export interface UserData {
+  id: number;
+  name: string;
+  email: string;
+  address: any;
+  event: EventData | null;
+  group: any;
+  feedbacks: any[];
+}

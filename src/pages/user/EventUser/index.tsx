@@ -19,7 +19,6 @@ export const EventUser = () => {
   const [user, setUser] = useState<UserData>({} as UserData);
 
   const verifySubscription = () => {
-    console.log("event", !!user.event, user.event);
     if (!!user.event) {
       setIsSubscribed(true);
     } else {
@@ -28,10 +27,11 @@ export const EventUser = () => {
   };
 
   const getUser = async () => {
-    const response = await api.get(`/users/${userId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    setUser(response.data);
+    api
+      .get(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => setUser(response.data));
   };
 
   const getEvent = async () => {
@@ -54,7 +54,6 @@ export const EventUser = () => {
       year: "numeric",
     });
     setEvent(formated);
-    setRender(true);
   };
 
   const reqEvent = async () => {
@@ -64,26 +63,23 @@ export const EventUser = () => {
     setLoading(true);
   };
 
-  useEffect(() => {
-    reqEvent();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const navigate = useNavigate();
 
   const subscribe = async (id: number) => {
+    const data = { name: event.name };
     api
-      .patch(`/users/event/signup/${id}`, {
+      .patch(`/users/event/signup/${id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then(() =>
-        toast.success("Incrição Realizada!", {
+        toast.success("Registration completed!", {
           position: "top-right",
           theme: "dark",
         })
       )
+      .then((_) => getUser())
       .catch((error) => {
         if (error.response.data.error) {
           return toast.error(error.response.data.error, {
@@ -101,13 +97,22 @@ export const EventUser = () => {
 
   const unSubcribe = (id: number) => {
     api
-      .patch(`/users/event/unsubscribe/${id}`)
+      .patch(
+        `/users/event/unsubscribe/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) =>
         toast.success(response.data.msg, {
           position: "top-right",
           theme: "dark",
         })
       )
+      .then((_) => getUser())
       .catch((error) =>
         toast.error(error.response.data.error, {
           position: "top-right",
@@ -116,7 +121,14 @@ export const EventUser = () => {
       );
   };
 
-  console.log("isSubscribed", isSubscribed);
+  useEffect(() => {
+    reqEvent();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    verifySubscription();
+  }, [user]);
 
   return (
     <>

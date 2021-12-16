@@ -20,19 +20,12 @@ export const EventUser = () => {
     email: "estevan@mail.com",
     points: 0,
     address: null,
-    event: {
-      id: 1,
-      name: "KenzieHack",
-      date: "Thu, 01 Dec 2022 00:00:00 GMT",
-      duration: "Thu, 01 Dec 2022 00:00:00 GMT",
-      skills: "[testes, teste]",
-      sponsors_id: null,
-      pending: true,
-    },
+    event: null
   };
 
   const verifySubscription = () => {
-    if (!!user.event.id) {
+    console.log(user.event)
+    if (user.event) {
       setIsSubscribed(true);
     }
   };
@@ -73,15 +66,13 @@ export const EventUser = () => {
   const navigate = useNavigate();
 
   const subscribe = async (id: number) => {
-    const response = await api.patch(`/users/event/signup/${id}`, {
+    await api.patch(`/users/event/signup/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
+    
   };
-
-  console.log(isSubscribed);
 
   return (
     <>

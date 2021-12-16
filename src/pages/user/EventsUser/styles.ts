@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vw;
+  height: 100%;
   background: #131a21;
   display: flex;
   flex-direction: row;
+  overflow-y: hidden;
 
   ::-webkit-scrollbar {
     display: none;
@@ -13,6 +14,7 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    
   }
 `;
 
@@ -27,7 +29,7 @@ export const Content = styled.main`
   padding: 15px;
   padding-top: 50px;
   width: 100%;
-  max-width: 670px;
+  max-width: 500px;
   height: 75vh;
   min-height: 500px;
 

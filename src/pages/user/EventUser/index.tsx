@@ -6,28 +6,31 @@ import { EventData } from "../../../types/EventContext";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../contexts/Auth";
 import { Load } from "../../../components/load";
+import { UserData } from "../../../types/AuthContext";
+import { toast } from "react-toastify";
 
 export const EventUser = () => {
   const { id } = useParams();
-  const { token } = useAuth();
+  const { token, userId } = useAuth();
   const [event, setEvent] = useState<EventData>({} as EventData);
-  const [render, setRender] = useState<boolean>(false);
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const user = {
-    id: 1,
-    name: "estevan",
-    email: "estevan@mail.com",
-    points: 0,
-    address: null,
-    event: null
-  };
+  const [user, setUser] = useState<UserData>({} as UserData);
 
   const verifySubscription = () => {
-    console.log(user.event)
-    if (user.event) {
+    if (!!user.event) {
       setIsSubscribed(true);
+    } else {
+      setIsSubscribed(false);
     }
+  };
+
+  const getUser = async () => {
+    api
+      .get(`/users/${userId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => setUser(response.data));
   };
 
   const getEvent = async () => {
@@ -50,70 +53,129 @@ export const EventUser = () => {
       year: "numeric",
     });
     setEvent(formated);
-    setRender(true);
   };
 
-  useEffect(() => {
-    const reqEvent = async () => {
-      await getEvent();
-      await verifySubscription();
-      setLoading(true);
-    };
-    reqEvent();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const reqEvent = async () => {
+    await getUser();
+    await getEvent();
+    await verifySubscription();
+    setLoading(true);
+  };
 
   const navigate = useNavigate();
 
   const subscribe = async (id: number) => {
-    await api.patch(`/users/event/signup/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    
+    const data = { name: event.name };
+    api
+      .patch(`/users/event/signup/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() =>
+        toast.success("Registration completed!", {
+          position: "top-right",
+          theme: "dark",
+        })
+      )
+      .then((_) => getUser())
+      .catch((error) => {
+        if (error.response.data.error) {
+          return toast.error(error.response.data.error, {
+            position: "top-right",
+            theme: "dark",
+          });
+        } else {
+          return toast.error(error.response.data.msg, {
+            position: "top-right",
+            theme: "dark",
+          });
+        }
+      });
   };
+
+  const unSubcribe = (id: number) => {
+    api
+      .patch(
+        `/users/event/unsubscribe/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) =>
+        toast.success(response.data.msg, {
+          position: "top-right",
+          theme: "dark",
+        })
+      )
+      .then((_) => getUser())
+      .catch((error) =>
+        toast.error(error.response.data.error, {
+          position: "top-right",
+          theme: "dark",
+        })
+      );
+  };
+
+  useEffect(() => {
+    reqEvent();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    verifySubscription();
+  }, [user]);
 
   return (
     <>
       <Back onClick={() => navigate("/events-user")}>
         <BsArrow90DegLeft />
       </Back>
-        <Container>
-          {loading ? (
-            <>
-              <p>
-                Evento: <span>{event.name}</span>
-              </p>
-              <p>
-                Data:{" "}
-                <span>
-                  {event.date} até {event.duration}
-                </span>
-              </p>
-              <p>
-                Descrição:
-                <span> {event.description}</span>
-              </p>
-              <p>
-                Habilidades Técnicas:
-                <span>
-                  {" "}
-                  {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}
-                </span>
-              </p>
+      <Container>
+        {loading ? (
+          <>
+            <p>
+              Evento: <span>{event.name}</span>
+            </p>
+            <p>
+              Data:{" "}
+              <span>
+                {event.date} até {event.duration}
+              </span>
+            </p>
+            <p>
+              Descrição:
+              <span> {event.description}</span>
+            </p>
+            <p>
+              Habilidades Técnicas:
+              <span>
+                {" "}
+                {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}
+              </span>
+            </p>
+            <div>
               <Button
                 disabled={isSubscribed}
                 onClick={() => subscribe(user.id)}
               >
                 Inscreva-se
               </Button>
-            </>
-          ) : (
-            <Load />
-          )}
-        </Container>
-    
+              <Button
+                disabled={!isSubscribed}
+                onClick={() => unSubcribe(user.id)}
+              >
+                Desinscrever-se
+              </Button>
+            </div>
+          </>
+        ) : (
+          <Load />
+        )}
+      </Container>
     </>
   );
 };

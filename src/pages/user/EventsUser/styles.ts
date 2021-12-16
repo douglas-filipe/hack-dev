@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100%;
   background: #131a21;
   display: flex;
   flex-direction: row;
@@ -12,9 +11,28 @@ export const Container = styled.div`
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     flex-direction: column;
     
+  }
+`;
+
+export const Positioner = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 50px 20px;
+  margin: 0;
+  background-color: #131a21;
+
+  @media (max-width: 767px) {
+    width: 100vw;
+  }
+
+  @media (max-width: 420px) {
+    padding: 30px 10px;
   }
 `;
 
@@ -22,15 +40,14 @@ export const Content = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1;
-  margin: 50px auto;
+  box-sizing: border-box;
   border-radius: 15px;
   background-color: #151e29;
   padding: 15px;
   padding-top: 50px;
   width: 100%;
-  max-width: 500px;
-  height: 75vh;
+  max-width: 670px;
+  /* height: 75vh; */
   min-height: 500px;
 
   h1 {
@@ -42,10 +59,9 @@ export const Content = styled.main`
     text-align: center;
     margin-bottom: 15px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding: 20px 10px;
     min-width: 300px;
-    width: 80%;
     height: 75vh;
   }
 `;
@@ -53,6 +69,7 @@ export const Content = styled.main`
 export const Events = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
+  box-sizing: border-box;
   width: 100%;
 
   ::-webkit-scrollbar {

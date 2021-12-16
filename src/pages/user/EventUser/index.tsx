@@ -134,48 +134,48 @@ export const EventUser = () => {
       <Back onClick={() => navigate("/events-user")}>
         <BsArrow90DegLeft />
       </Back>
-      <Container>
-        {loading ? (
-          <>
-            <p>
-              Evento: <span>{event.name}</span>
-            </p>
-            <p>
-              Data:{" "}
-              <span>
-                {event.date} até {event.duration}
-              </span>
-            </p>
-            <p>
-              Descrição:
-              <span> {event.description}</span>
-            </p>
-            <p>
-              Habilidades Técnicas:
-              <span>
-                {" "}
-                {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}
-              </span>
-            </p>
-            <div>
-              <Button
-                disabled={isSubscribed}
-                onClick={() => subscribe(user.id)}
-              >
-                Inscreva-se
-              </Button>
-              <Button
-                disabled={!isSubscribed}
-                onClick={() => unSubcribe(user.id)}
-              >
-                Desinscrever-se
-              </Button>
-            </div>
-          </>
-        ) : (
-          <Load />
-        )}
-      </Container>
+
+      {loading ? (
+        <>
+          <Container>
+            <>
+              <p>
+                Evento: <span>{event.name}</span>
+              </p>
+              <p>
+                Data:{" "}
+                <span>
+                  {event.date} até {event.duration}
+                </span>
+              </p>
+              <p>
+                Descrição:
+                <span> {event.description}</span>
+              </p>
+              <p>
+                Habilidades Técnicas:
+                <span>
+                  {" "}
+                  {event.skills.replace(/\]/gm, "").replace(/\[/gm, "")}
+                </span>
+              </p>
+
+              {isSubscribed ? (
+                <Button
+                  className="Unsubscribe"
+                  onClick={() => unSubcribe(user.id)}
+                >
+                  Cancelar inscrição
+                </Button>
+              ) : (
+                <Button onClick={() => subscribe(user.id)}>Inscreva-se</Button>
+              )}
+            </>
+          </Container>
+        </>
+      ) : (
+        <Load />
+      )}
     </>
   );
 };

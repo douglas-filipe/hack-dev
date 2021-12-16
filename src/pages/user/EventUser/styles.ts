@@ -11,6 +11,10 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: start;
   border-radius: 10px;
+  .Unsubscribe{
+    background: #50677E;
+  }
+  
 
   p {
     font-weight: bold;
@@ -52,7 +56,7 @@ export const Button = styled.button`
   height: 45px;
   border: none;
   box-sizing: border-box;
-  background-color: ${({ disabled }) => (!disabled ? "#9b1f48" : "#50677E")};
+  background-color: #9b1f48;
   border-radius: 5px;
   color: white;
   cursor: ${({ disabled }) => (!disabled ? "pointer" : "")};
@@ -62,4 +66,7 @@ export const Button = styled.button`
   :hover {
     filter: ${({ disabled }) => (!disabled ? "brightness(1.2)" : "")};
   }
+
+  
+  
 `;

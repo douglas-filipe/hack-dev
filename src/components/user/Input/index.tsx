@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Container } from "./style";
-
 interface InputProps {
   title: string;
   placeholder?: string;

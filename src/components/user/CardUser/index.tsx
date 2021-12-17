@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BsPencilSquare as Pencil,
   BsPersonCircle as User,
@@ -14,11 +14,17 @@ import { Container, Content, UpdateBox } from "./style";
 export const CardUser = () => {
   const [updateUser, setUpdateUser] = useState(false);
   const [updatePassword, setUpdadePassword] = useState(false);
+
+
+  const { user, getUser } = useUser();
+
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [show, setShow] = useState(false)
-  const { user } = useUser();
 
-
-  console.log(show)
 
   const handleUser = () => {
     setUpdateUser(!updateUser);

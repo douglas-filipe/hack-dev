@@ -10,14 +10,14 @@ import { Container, Content, CardBox } from "./style";
 export const PrizeUser = () => {
   const { prizes, getPrizes } = usePrizes();
   const [filters, setFilters] = useState<any>([]);
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const reqPrizes = async() => {
+    const reqPrizes = async () => {
       await getPrizes();
-      setLoading(true)
-    }
-    reqPrizes()
+      setLoading(true);
+    };
+    reqPrizes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,26 +43,23 @@ export const PrizeUser = () => {
               <FiSearch className="icons" />
             </div>
           </div>
-          {loading
-          ?
-          <CardBox>
-            {filters.length === 0
-              ? prizes.slice(0, 8).map((element) => {
-                  return (
-                    <CardPrize prize={element.name} points={element.price} />
-                  );
-                })
-              : filters.map((element: any) => {
-                  return (
-                    <CardPrize prize={element.name} points={element.price} />
-                  );
-                })}
-          </CardBox>
-
-          :
-
-          <Load/>
-          }
+          {loading ? (
+            <CardBox>
+              {filters.length === 0
+                ? prizes.slice(0, 8).map((element) => {
+                    return (
+                      <CardPrize prize={element.name} points={element.price} />
+                    );
+                  })
+                : filters.map((element: any) => {
+                    return (
+                      <CardPrize prize={element.name} points={element.price} />
+                    );
+                  })}
+            </CardBox>
+          ) : (
+            <Load />
+          )}
         </Content>
       </Container>
     </>

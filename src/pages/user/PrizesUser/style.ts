@@ -22,7 +22,7 @@ export const Content = styled.div`
 
   .inputs {
     background-color: #262a34;
-    width: 463px;
+    width: 300px;
     height: 57px;
     border-radius: 13px;
 
@@ -52,7 +52,8 @@ export const Content = styled.div`
     cursor: pointer;
   }
   h1 {
-    font-size: 1.8rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
   .box {
     height: 200px;
@@ -66,6 +67,17 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 768px) {
     flex: 1;
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .inputs {
+    background-color: #262a34;
+    width: 463px;
+
+    input {
+      width: 100%;
+    }
   }
 `;
 
@@ -76,4 +88,7 @@ export const CardBox = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  input {
+    width: 100%;
+  }
 `;

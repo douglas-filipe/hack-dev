@@ -38,7 +38,7 @@ export const MenuLateral = () => {
           <span>Eventos</span>
         </CustomLink>
 
-        <CustomLink to="/" onClick={() => setOpenMenu(false)}>
+        <CustomLink to="/prize-user" onClick={() => setOpenMenu(false)}>
           <BsTrophy />
           <span>Premiações</span>
         </CustomLink>

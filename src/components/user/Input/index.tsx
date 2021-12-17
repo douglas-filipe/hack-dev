@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "./style";
-
 interface InputProps {
   title: string;
   placeholder?: string;

@@ -9,7 +9,13 @@ import api from "../../../services/api";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../contexts/Auth";
 import { UserData, EventData } from "../../../types/EventContext";
+
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import { Load } from "../../../components/load";
+
+>>>>>>> db195340261c3ecc7baddc27d9dbe94a4afb9ba6
 import { SyncLoader } from "react-spinners";
 
 export const HomeUser = () => {
@@ -73,7 +79,7 @@ export const HomeUser = () => {
 
             <CardSubscription
               title="Inscrições"
-              event={user.event? user.event.name: 'sem evento'}
+              event={user.event ? user.event.name : "sem evento"}
               group={user?.group}
             />
           </div>
@@ -83,7 +89,7 @@ export const HomeUser = () => {
 
             {loading ? (
               <span className="span-loading">
-                <SyncLoader color="#02A5DB" />
+                <Load />
               </span>
             ) : (
               events.map((event) => {

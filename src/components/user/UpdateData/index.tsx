@@ -44,11 +44,11 @@ export const UpdateData = ({ handleUser }: any) => {
     }
   };
 
-  const userAddressUpdate = async (data: Iuser) => {
-    await api.patch(
+  const userAddressUpdate = async () => {
+    const response = await api.patch(
       `/users/${userId}`,
       {
-        name: name, email: email, zip_code: zip_code, city: city, street: "teste", number: 3, district: "teste", state: "teste"
+        name: name, email: email
       },
       {
         headers: {
@@ -56,7 +56,7 @@ export const UpdateData = ({ handleUser }: any) => {
         },
       }
     );
-    reqUser();
+    console.log(response.data)
   };
 
   useEffect(() => {
@@ -82,22 +82,6 @@ export const UpdateData = ({ handleUser }: any) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Endereço:</label>
-        <input
-          {...register("city")}
-          title="Endereço"
-          placeholder="Digite sua cidade..."
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <label>CEP:</label>
-        <input
-          {...register("zip_code")}
-          placeholder="00000-00"
-          value={zip_code}
-          onChange={(e) => setZip_code(e.target.value)}
-        />
-
         <div className="content-button">
           <Button onClick={handleUser} redTheme>
             <MdOutlineCancelPresentation /> Cancelar

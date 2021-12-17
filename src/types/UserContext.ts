@@ -12,6 +12,7 @@ export interface UserData {
   avatar_id: number;
   event_id: number;
   address: UserAddress;
+  
 }
 
 export interface UserAddress {

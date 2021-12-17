@@ -96,7 +96,7 @@ export const CardUser = () => {
           <UpdateData handleUser={handleUser} />
         </UpdateBox>
       )}
-      {!updatePassword && (
+      {updatePassword && (
         <UpdateBox>
           <UpdatePassword func={setUpdadePassword} state={updatePassword}/>
         </UpdateBox>

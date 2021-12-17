@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { Load } from "../../../components/load";
 import { MenuLateral } from "../../../components/MenuLateral";
 import { MenuMobile } from "../../../components/MenuMobile";
 import { CardPrize } from "../../../components/user/CardPrize";
@@ -9,9 +10,14 @@ import { Container, Content, CardBox } from "./style";
 export const PrizeUser = () => {
   const { prizes, getPrizes } = usePrizes();
   const [filters, setFilters] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
-    getPrizes();
+    const reqPrizes = async() => {
+      await getPrizes();
+      setLoading(true)
+    }
+    reqPrizes()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -37,6 +43,8 @@ export const PrizeUser = () => {
               <FiSearch className="icons" />
             </div>
           </div>
+          {loading
+          ?
           <CardBox>
             {filters.length === 0
               ? prizes.slice(0, 8).map((element) => {
@@ -50,6 +58,11 @@ export const PrizeUser = () => {
                   );
                 })}
           </CardBox>
+
+          :
+
+          <Load/>
+          }
         </Content>
       </Container>
     </>

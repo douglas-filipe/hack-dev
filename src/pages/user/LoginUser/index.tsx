@@ -92,13 +92,14 @@ export const LoginUser = () => {
         <img src={EscadaCima} alt="Escada Cima" />
         <section>
           <h1>Bem vindo de volta!</h1>
+
           <img src={vetor} alt="Vetor" />
         </section>
         <img src={EscadaBaixo} alt="Escada Baixo" />
       </section>
       <section className="Form">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <img src={Logo} alt="Logotipo" />
+            <img src={Logo} alt="Logotipo"/>
           <h1>Entre em sua conta</h1>
           <label htmlFor="email">Email:</label>
           <input

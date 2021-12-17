@@ -10,8 +10,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../../contexts/Auth";
 import { UserData, EventData } from "../../../types/EventContext";
 
-import PacmanLoader from "react-spinners/PacmanLoader";
 import { useNavigate } from "react-router-dom";
+import { Load } from "../../../components/load";
 
 export const HomeUser = () => {
   const { token, userId } = useAuth();
@@ -85,7 +85,7 @@ export const HomeUser = () => {
 
             {loading ? (
               <span className="span-loading">
-                <PacmanLoader color="#ffff" />
+                <Load/>
               </span>
             ) : (
               events.map((event) => {

@@ -17,6 +17,7 @@ export const Container = styled.div`
         text-align: center;
         font-size: 18px;
         margin: 10px;
+        margin-top: 0;
     }
     
     form{
@@ -29,9 +30,24 @@ export const Container = styled.div`
         }
           
     }
+    .cancel{
+        position: relative;
+        left: 294px;
+        top: -4px;
+        font-size: 1.75rem;
+        cursor: pointer;
+        svg{
+            color: red;
+        }
+    }
 
     @media (min-width: 600px){
         width: 400px;
+
+        .cancel{
+            left: 375px
+        }
+        
     }
 
 `

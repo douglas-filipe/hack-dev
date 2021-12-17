@@ -31,8 +31,6 @@ export const CardUser = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [show, setShow] = useState(false)
-
 
   const handleUser = () => {
     setUpdateUser(!updateUser);

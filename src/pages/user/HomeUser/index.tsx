@@ -11,12 +11,9 @@ import { useAuth } from "../../../contexts/Auth";
 import { UserData, EventData } from "../../../types/EventContext";
 
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-=======
+
 import { Load } from "../../../components/load";
 
->>>>>>> db195340261c3ecc7baddc27d9dbe94a4afb9ba6
-import { SyncLoader } from "react-spinners";
 
 export const HomeUser = () => {
   const { token, userId } = useAuth();

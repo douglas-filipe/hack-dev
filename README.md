@@ -7,6 +7,10 @@
 <HACK_DEV/> is a fullstack project, developed with the purpose of being a platform for the creation and execution of hackthons, where companies can generate the event demand and the application administrators initiate the creation and publicize of the event.
 The platform also has a registry of developers who can participate in the events, and exchange accumulated points for prizes.
 
+## Layout
+
+<img src="src/assets/final_layout.gif" width="700px"/>
+
 ## Features
 
 - Components can create their own hackthons

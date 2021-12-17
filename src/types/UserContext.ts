@@ -1,6 +1,7 @@
 export interface UserProviderData {
   user: UserData[];
   updateUser: () => Promise<void>;
+  getUser: () => Promise<void>;
 }
 
 export interface UserData {

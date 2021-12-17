@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import api from "../../services/api";
 import { ContextProp } from "../../types/AuthContext";
 import { UserData, UserProviderData } from "../../types/UserContext";
@@ -20,11 +20,6 @@ export const UserProvider = ({ children }: ContextProp) => {
     setUser([response.data]);
   };
 
-  useEffect(() => {
-    getUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const updateUser = async () => {
     const response = await api.patch(`/users/address/update/${userId}`, {
       headers: {
@@ -35,7 +30,7 @@ export const UserProvider = ({ children }: ContextProp) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserContext.Provider value={{ user, updateUser, getUser }}>
       {children}
     </UserContext.Provider>
   );

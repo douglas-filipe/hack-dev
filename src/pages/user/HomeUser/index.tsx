@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../../contexts/Auth";
 import { UserData, EventData } from "../../../types/EventContext";
 import { useNavigate } from "react-router-dom";
-import PacmanLoader from "react-spinners/PacmanLoader";
 import { SyncLoader } from "react-spinners";
 
 export const HomeUser = () => {

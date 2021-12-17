@@ -1,13 +1,13 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import { Container } from "./style";
 
 interface InputProps {
   title: string;
   placeholder?: string;
   value?: string | number;
+  name: string;
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
-  registerForm?: string;
+  register: (string: string) => void;
 }
 
 export const Input = ({
@@ -15,17 +15,18 @@ export const Input = ({
   placeholder,
   value,
   onChange,
-  registerForm,
+  name,
+  register,
   ...rest
 }: InputProps) => {
-  const { register } = useForm();
+  
   return (
     <Container>
       <span>{title}:</span>
       <input
-        {...register(`${registerForm}`)}
-        value={value}
-        placeholder={placeholder}
+      value={value}
+      placeholder={placeholder}
+        {...register(name)}
         {...rest}
         onChange={onChange}
       />

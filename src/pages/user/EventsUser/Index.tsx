@@ -2,7 +2,6 @@ import { useNavigate } from "react-router";
 import { MenuLateral } from "../../../components/MenuLateral";
 import { MenuMobile } from "../../../components/MenuMobile";
 import { CardEvent } from "../../../components/user/CardEvent";
-import { useEvents } from "../../../contexts/Events";
 import { Container, Content, Events, Positioner } from "./styles";
 import { Load } from "../../../components/load";
 import { EventData } from "../../../types/EventContext";

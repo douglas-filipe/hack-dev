@@ -14,11 +14,7 @@ import { Container, Content, UpdateBox } from "./style";
 export const CardUser = () => {
   const [updateUser, setUpdateUser] = useState(false);
   const [updatePassword, setUpdadePassword] = useState(false);
-  const [show, setShow] = useState(false)
   const { user } = useUser();
-
-
-  console.log(show)
 
   const handleUser = () => {
     setUpdateUser(!updateUser);
@@ -76,9 +72,9 @@ export const CardUser = () => {
           <UpdateData handleUser={handleUser} />
         </UpdateBox>
       )}
-      {updatePassword && (
+      {!updatePassword && (
         <UpdateBox>
-           !show && <UpdatePassword handleUser={handleUser}/>
+          <UpdatePassword func={setUpdadePassword} state={updatePassword}/>
         </UpdateBox>
       )}
     </Container>

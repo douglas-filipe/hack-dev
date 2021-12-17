@@ -21,12 +21,28 @@ export const Container = styled.div`
     }
     
     form{
-        .Button{
-            margin-top: 20px;
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:#047A49;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 auto;
+            margin-top: 2rem;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 9px;
+            border: 0;
+            color: #fff;
             width: 100%;
             height: 45px;
-            font-size: 16px;
-            font-weight: bold;
+        }
+
+        .error{
+            color: red;
+            margin-top: 10px;
+            margin-left: 5px
         }
           
     }

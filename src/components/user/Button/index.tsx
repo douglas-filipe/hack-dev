@@ -9,10 +9,10 @@ interface IPropsButton {
 
 }
 
-export const Button = ({ children, redTheme=false, onClick}: IPropsButton) => {
+export const Button = ({ children, redTheme=false, onClick, ...rest}: IPropsButton) => {
 
     return(
-        <Container redTheme={redTheme} onClick={onClick} className='Button'>
+        <Container {...rest} redTheme={redTheme} onClick={onClick} className='Button'>
             {children}
         </Container>
     )

@@ -11,9 +11,11 @@ import { UpdateData } from "../UpdateData";
 import { UpdatePassword } from "../UpdatePassword";
 import { Container, Content, UpdateBox } from "./style";
 
+
 export const CardUser = () => {
   const [updateUser, setUpdateUser] = useState(false);
   const [updatePassword, setUpdadePassword] = useState(false);
+
 
   const { user, getUser } = useUser();
   const [loading, setLoading] = useState<boolean>(false);
@@ -28,6 +30,9 @@ export const CardUser = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const [show, setShow] = useState(false)
+
 
   const handleUser = () => {
     setUpdateUser(!updateUser);
@@ -93,7 +98,7 @@ export const CardUser = () => {
       )}
       {updatePassword && (
         <UpdateBox>
-          <UpdatePassword handleUser={handleUser} />
+           !show && <UpdatePassword handleUser={handleUser}/>
         </UpdateBox>
       )}
     </Container>

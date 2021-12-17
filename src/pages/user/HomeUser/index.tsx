@@ -13,11 +13,13 @@ import { UserData, EventData } from "../../../types/EventContext";
 import { useNavigate } from "react-router-dom";
 import { Load } from "../../../components/load";
 
+import { SyncLoader } from "react-spinners";
+
 export const HomeUser = () => {
   const { token, userId } = useAuth();
   const [user, setUser] = useState<UserData>({} as UserData);
   const [message, setMessage] = useState("");
-  const [events, setEvents] = useState<EventData[]>([]);
+  const [events, setEvents] = useState<EventData[]>([] as EventData[]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -57,7 +59,6 @@ export const HomeUser = () => {
   const detailsEvent = (params: string) => {
     navigate(params);
   };
-
   return (
     <Container className="Home">
       <MenuMobile />
@@ -75,7 +76,7 @@ export const HomeUser = () => {
 
             <CardSubscription
               title="Inscrições"
-              event={user.event === null ? "sem evento" : "com evento"} // arrumar aqui
+              event={user.event ? user.event.name : "sem evento"}
               group={user?.group}
             />
           </div>
@@ -85,7 +86,7 @@ export const HomeUser = () => {
 
             {loading ? (
               <span className="span-loading">
-                <Load/>
+                <Load />
               </span>
             ) : (
               events.map((event) => {

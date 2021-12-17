@@ -25,6 +25,7 @@ export interface UserData {
   email: string;
   address: any;
   event: EventData | null;
+  points: number; 
   group: any;
   feedbacks: any[];
 }

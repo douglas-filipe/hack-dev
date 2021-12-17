@@ -4,7 +4,7 @@ import triangulo from '../../../assets/login-user/triangulo.svg'
 
 interface IPropsCardPoints {
     title: string,
-    points: number | 0,
+    points: number,
 }
 
 export const CardPoints =  ({ title, points }: IPropsCardPoints) => {

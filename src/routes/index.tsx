@@ -8,6 +8,7 @@ import { EventUser } from "../pages/user/EventUser";
 import { SignupUser } from "../pages/user/SignupUser";
 import { useAuth } from "../contexts/Auth";
 import { RecuperatePassword } from "../pages/user/RecuperatePassword";
+import { PrizeUser } from "../pages/user/PrizesUser";
 
 export const RoutesMain = () => {
   const { token } = useAuth();
@@ -41,6 +42,10 @@ export const RoutesMain = () => {
         element={token ? <ConfigUser /> : <Navigate replace to="/login-user" />}
       />
 
+      <Route
+        path="/prize-user"
+        element={token ? <PrizeUser /> : <Navigate replace to="/login-user" />}
+      />
       <Route path="/recuperate-password" element={<RecuperatePassword />} />
     </Routes>
   );

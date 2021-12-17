@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# <HACK_DEV/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## _The best hackthon platform, Ever_
 
-## Available Scripts
+[![forthebadge made-with](https://camo.githubusercontent.com/fff9737fa823a9c62e19a8f3a3a8f6e3268a310164027b4707ac038ef77556d0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742532302d2532333631444146422e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d5265616374266c6f676f436f6c6f723d7768697465)](https://www.python.org/) [![forthebadge made-with](https://camo.githubusercontent.com/eadfab1d82c818345efafe25d87c2ad18f6edcbcbbe7ae2c26bdd62ed833cbf9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f547970655363726970742532302d2532333331373843362e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d54797065536372697074266c6f676f436f6c6f723d7768697465)](https://www.python.org/)
 
-In the project directory, you can run:
+<HACK_DEV/> is a fullstack project, developed with the purpose of being a platform for the creation and execution of hackthons, where companies can generate the event demand and the application administrators initiate the creation and publicize of the event.
+The platform also has a registry of developers who can participate in the events, and exchange accumulated points for prizes.
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Components can create their own hackthons
+- Developers can choose the event they will participate in
+- Each event scores the best developer
+- All participants earn points that can be accumulated and exchanged for ✨prizes✨
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Techs
 
-### `yarn test`
+##### ![React Js](https://camo.githubusercontent.com/fff9737fa823a9c62e19a8f3a3a8f6e3268a310164027b4707ac038ef77556d0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742532302d2532333631444146422e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d5265616374266c6f676f436f6c6f723d7768697465) ![Typescript](https://camo.githubusercontent.com/eadfab1d82c818345efafe25d87c2ad18f6edcbcbbe7ae2c26bdd62ed833cbf9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f547970655363726970742532302d2532333331373843362e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d54797065536372697074266c6f676f436f6c6f723d7768697465) ![Styled Components](https://camo.githubusercontent.com/db35ec5de1b8557e884d220114f8b1b672d94b47d58f307931733f5044a1abd9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374796c65642d2d636f6d706f6e656e74732532302d2532334442373039332e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d7374796c65642d636f6d706f6e656e7473266c6f676f436f6c6f723d7768697465) ![Material ui](https://camo.githubusercontent.com/b108133c1f506de0b79c059deb4a8b25697a15e5bf1f85d68ca166a844b6ff61/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6174657269616c2d2d55492532302d2532333030383143422e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d4d6174657269616c2d5549266c6f676f436f6c6f723d7768697465)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#
 
-### `yarn build`
+## Documetation and API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+##### [Postman](https://documenter.getpostman.com/view/18248829/UVR4LpTHhttps://documenter.getpostman.com/view/18248829/UVR4LpTH) - [API](https://hack-dev.herokuapp.com)

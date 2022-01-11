@@ -55,7 +55,7 @@ export const Container = styled.main`
     form {
       display: flex;
       flex-direction: column;
-      width: 270px;
+      height: 600px;
 
       h1 {
         text-align: center;
@@ -84,6 +84,7 @@ export const Container = styled.main`
 
       input:focus {
         outline: 2px solid #3993dd;
+        height: 53px;
       }
 
       .FirstInput {
@@ -124,11 +125,8 @@ export const Container = styled.main`
       }
 
       .LoginGoogle {
-
         display: flex;
         justify-content: center;
-
-        
       }
 
       .LoginLink {
@@ -159,6 +157,7 @@ export const Container = styled.main`
 
       form {
         width: 350px;
+        height: auto;
 
         button {
           width: 310px;

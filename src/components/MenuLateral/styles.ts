@@ -2,7 +2,19 @@ import styled from "styled-components";
 
 interface IMenuLateralProps {
   openMenu: boolean;
+  background: string;
 }
+
+const renderBackground = (url: string) => {
+  const backgrounds: any = {
+    "/home-user": "#fff",
+    "/events-user": "#000",
+    "/prize-user": "red",
+    "/config-user": "green",
+  };
+
+  return backgrounds[url];
+};
 
 export const Container = styled.div<IMenuLateralProps>`
   display: flex;
@@ -55,7 +67,7 @@ export const Container = styled.div<IMenuLateralProps>`
   .contents {
     width: 208px;
     height: 100vh;
-    background: #10151d;
+    background: ${({ background }) => renderBackground(background)};
     display: flex;
     flex-direction: column;
     animation: ${(props) => (props.openMenu ? "0.4s animateMenu" : "none")};

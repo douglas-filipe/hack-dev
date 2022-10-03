@@ -10,21 +10,23 @@ import { CustomLink } from "../CustomLink";
 import Logo from "../../assets/logo.svg";
 import { useMenu } from "../../contexts/Menu";
 import { useAuth } from "../../contexts/Auth";
+import { useLocation, useMatch, useResolvedPath } from "react-router-dom";
 
 export const MenuLateral = () => {
   const { openMenu, setOpenMenu } = useMenu();
   const { setToken, setUserId } = useAuth();
+  const location = useLocation();
 
-  const logout = async () => {
-    await localStorage.removeItem("@hack-dev/userId");
-    await localStorage.removeItem("@hack-dev/token");
-    await setToken("");
-    await setUserId("");
-    await setOpenMenu(false);
+  const logout = () => {
+    localStorage.removeItem("@hack-dev/userId");
+    localStorage.removeItem("@hack-dev/token");
+    setToken("");
+    setUserId("");
+    setOpenMenu(false);
   };
 
   return (
-    <Container openMenu={openMenu}>
+    <Container background={location.pathname} openMenu={openMenu}>
       <div className="contents">
         <IoMdClose className="Close" onClick={() => setOpenMenu(false)} />
         <img src={Logo} alt="Logotipo" />
